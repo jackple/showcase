@@ -23,3 +23,11 @@
   level: 'info',
   timestamp: '2018-08-11T01:43:41.541Z',
   [Symbol(level)]: 'info' }
+{ message: 'Sent: /Users/jackple/Documents/node/showcase-in-github/src/assets/yellow.png',
+  level: 'info',
+  timestamp: '2018-08-13T10:22:59.961Z',
+  [Symbol(level)]: 'info' }
+{ message: 'Sent: /Users/jackple/Documents/node/showcase-in-github/src/assets/yellow.png',
+  level: 'info',
+  timestamp: '2018-08-13T10:24:32.070Z',
+  [Symbol(level)]: 'info' }
