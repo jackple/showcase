@@ -1,0 +1,25 @@
+{"level":"info","message":"account: "}
+{ message: { account: 'asdasdasd', password: 'asdasdasdas' },
+  level: 'info',
+  timestamp: '2018-08-09T15:14:29.373Z',
+  [Symbol(level)]: 'info' }
+{ message: { account: 'asdasdasd', password: 'asdasdasdas' },
+  level: 'info',
+  timestamp: '2018-08-09T15:14:29.904Z',
+  [Symbol(level)]: 'info' }
+{ message: 'Sent: /Users/jackple/Documents/node/showcase/src/assets/yellow.png',
+  level: 'info',
+  timestamp: '2018-08-11T01:41:44.979Z',
+  [Symbol(level)]: 'info' }
+{ message: 'Sent: /Users/jackple/Documents/node/showcase/src/assets/break.png',
+  level: 'info',
+  timestamp: '2018-08-11T01:42:04.871Z',
+  [Symbol(level)]: 'info' }
+{ message: 'Sent: /Users/jackple/Documents/node/showcase/src/assets/break.png',
+  level: 'info',
+  timestamp: '2018-08-11T01:42:33.717Z',
+  [Symbol(level)]: 'info' }
+{ message: 'Sent: /Users/jackple/Documents/node/showcase/src/assets/break.png',
+  level: 'info',
+  timestamp: '2018-08-11T01:43:41.541Z',
+  [Symbol(level)]: 'info' }
