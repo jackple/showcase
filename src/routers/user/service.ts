@@ -11,7 +11,7 @@ export interface LoginParam {
 }
 
 export interface CreateParam extends LoginParam {
-    category?: UserCategory;
+    category: UserCategory;
 }
 
 @Injectable()
@@ -21,19 +21,15 @@ export class UserService {
         private readonly userRepository: Repository<User>,
     ) {}
 
-    create(param: CreateParam) {
-        if (!param) {
-            logger.error(param);
-            return '参数错误!';
-        }
-        this.userRepository.insert(param);
+    async create(param: CreateParam) {
+        await this.userRepository.insert({
+            ...param,
+            createdAt: new Date(),
+        });
+        return '创建成功!';
     }
 
     login(param: LoginParam) {
-        if (!param || !param.account || !param.password) {
-            logger.error(param);
-            return '参数错误!';
-        }
         logger.info(param);
         return '登录成功!!!';
     }
