@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
-    await app.listen(3333);
+    // 支持跨域
+    app.enableCors();
+    await app.listen(9999);
 }
 bootstrap();
