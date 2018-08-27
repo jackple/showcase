@@ -9,4 +9,9 @@ export class UserController {
     root(@Body() req: LoginParam): string {
         return this.userService.login(req);
     }
+
+    @Post()
+    create(@Body() req: LoginParam): string {
+        return this.userService.login(req);
+    }
 }

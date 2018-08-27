@@ -1,14 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UserController } from './routers/user/controller';
-import { UserService } from './routers/user/service';
-import { DoorChainController } from './routers/doorChain/controller';
-import { DoorChainService } from './routers/doorChain/service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { dbConf } from 'config/db';
 
 @Module({
-    imports: [],
-    controllers: [AppController, UserController, DoorChainController],
-    providers: [AppService, UserService, DoorChainService],
+    imports: [TypeOrmModule.forRoot(dbConf)],
 })
 export class AppModule {}
