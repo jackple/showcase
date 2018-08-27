@@ -7,8 +7,8 @@ export interface LoginParam {
 }
 
 @Injectable()
-export class LoginService {
-    root(param: LoginParam): string {
+export class UserService {
+    login(param: LoginParam): string {
         if (!param || !param.account || !param.password) {
             logger.error(param);
             return '参数错误!';
