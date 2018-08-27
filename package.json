@@ -14,15 +14,7 @@
         "test": "jest",
         "test:cov": "jest --coverage",
         "test:e2e": "jest --config ./test/jest-e2e.json",
-        "webpack": "webpack --config webpack.config.js",
-        "bump-release": "npmversion --unpreid",
-        "bump-major": "npmversion --increment major",
-        "bump-minor": "npmversion --increment minor",
-        "bump-patch": "npmversion --increment patch",
-        "bump-major-beta": "npmversion --increment major --preid beta",
-        "bump-minor-beta": "npmversion --increment minor --preid beta",
-        "bump-patch-beta": "npmversion --increment patch --preid beta",
-        "bump-prerelease-beta": "npmversion --increment prerelease --preid beta"
+        "webpack": "webpack --config webpack.config.js"
     },
     "dependencies": {
         "@nestjs/common": "^5.0.0",
@@ -42,7 +34,6 @@
         "@types/supertest": "^2.0.4",
         "jest": "^21.2.1",
         "nodemon": "^1.14.1",
-        "npmversion": "^1.7.0",
         "prettier": "^1.11.1",
         "semver": "^5.5.0",
         "supertest": "^3.0.0",
