@@ -15,8 +15,7 @@ export default class UserService {
 
     async create(param: CreateDto) {
         const createdUser = new this.userModel(param);
-        await createdUser.save();
-        return '创建成功!';
+        return await createdUser.save();
     }
 
     login(param: LoginDto) {
