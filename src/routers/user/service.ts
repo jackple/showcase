@@ -34,10 +34,16 @@ export default class UserService extends ServiceExt {
         return this.createResData(user);
     }
 
-    login(loginDto: LoginDto) {
+    async login(loginDto: LoginDto) {
         if (!loginDto || !loginDto.account || !loginDto.password) {
             logger.error(loginDto);
             return this.createResData(null, '参数错误!', 1);
+        }
+        const user = await this.userModel.findOne({
+            account: loginDto.account,
+        });
+        if (cryptData(loginDto.password) !== user.password) {
+            return this.createResData(null, '密码错误!', 1);
         }
         logger.info(loginDto);
         return this.createResData(null, '登录成功!');
