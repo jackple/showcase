@@ -3,8 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import logger from 'utils/logger';
-import { isDocumentExist } from 'utils/db';
-import { createResData } from 'utils/common';
+import { isDocumentExist, createResData } from 'utils/common';
 import { IUser } from './interface';
 import CreateDto from './dto/create.dto';
 import LoginDto from './dto/login.dto';
