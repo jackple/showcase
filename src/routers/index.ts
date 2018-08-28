@@ -1,4 +1,5 @@
+import AuthModule from './auth/module';
 import UserModule from './user/module';
 import MenuModule from './menu/module';
 
-export default [UserModule, MenuModule];
+export default [AuthModule, UserModule, MenuModule];
