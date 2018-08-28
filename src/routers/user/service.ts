@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import logger from 'utils/logger';
+import { cryptData } from 'utils/common';
 import ServiceExt from 'utils/serviceExt';
 import { IUser } from './interface';
 import CreateDto from './dto/create.dto';
@@ -15,14 +16,22 @@ export default class UserService extends ServiceExt {
     }
 
     async create(createDto: CreateDto) {
+        if (!createDto || !createDto.account || !createDto.password) {
+            logger.error(createDto);
+            return this.createResData(null, '参数错误!', 1);
+        }
         const isUserExist = await this.isDocumentExist(this.userModel, {
             account: createDto.account,
         });
         if (isUserExist) {
             return this.createResData(null, '用户已存在!', 1);
         }
-        const createdUser = new this.userModel(createDto);
-        return await createdUser.save();
+        const createdUser = new this.userModel({
+            ...createDto,
+            password: cryptData(createDto.password),
+        });
+        const user = await createdUser.save();
+        return this.createResData(user);
     }
 
     login(loginDto: LoginDto) {
