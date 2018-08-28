@@ -7,14 +7,11 @@ import { IUser } from './interface';
 import CreateDto from './dto/create.dto';
 import LoginDto from './dto/login.dto';
 
-export interface LoginParam {
-    account: string;
-    password: string;
-}
-
 @Injectable()
 export default class UserService {
-    constructor(@InjectModel('Cat') private readonly userModel: Model<IUser>) {}
+    constructor(
+        @InjectModel('User') private readonly userModel: Model<IUser>,
+    ) {}
 
     async create(param: CreateDto) {
         const createdUser = new this.userModel(param);
