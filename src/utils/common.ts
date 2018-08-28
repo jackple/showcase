@@ -2,7 +2,7 @@ import { Model } from 'mongoose';
 
 export async function isDocumentExist(
     model: Model<any>,
-    conditions: PlainObject,
+    conditions: { [key: string]: any },
 ) {
     try {
         const count = await model.countDocuments(conditions);
