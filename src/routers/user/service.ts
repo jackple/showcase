@@ -3,30 +3,34 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import logger from 'utils/logger';
-import { isDocumentExist, createResData } from 'utils/common';
+import ServiceExt from 'utils/serviceExt';
 import { IUser } from './interface';
 import CreateDto from './dto/create.dto';
 import LoginDto from './dto/login.dto';
 
 @Injectable()
-export default class UserService {
-    constructor(
-        @InjectModel('User') private readonly userModel: Model<IUser>,
-    ) {}
+export default class UserService extends ServiceExt {
+    constructor(@InjectModel('User') private readonly userModel: Model<IUser>) {
+        super();
+    }
 
-    async create(param: CreateDto) {
-        const isUserExist = await isDocumentExist(this.userModel, {
-            account: param.account,
+    async create(createDto: CreateDto) {
+        const isUserExist = await this.isDocumentExist(this.userModel, {
+            account: createDto.account,
         });
         if (isUserExist) {
-            return createResData(null, '用户已存在!', 1);
+            return this.createResData(null, '用户已存在!', 1);
         }
-        const createdUser = new this.userModel(param);
+        const createdUser = new this.userModel(createDto);
         return await createdUser.save();
     }
 
-    login(param: LoginDto) {
-        logger.info(param);
-        return '登录成功!!!';
+    login(loginDto: LoginDto) {
+        if (!loginDto || !loginDto.account || !loginDto.password) {
+            logger.error(loginDto);
+            return this.createResData(null, '参数错误!', 1);
+        }
+        logger.info(loginDto);
+        return this.createResData(null, '登录成功!');
     }
 }

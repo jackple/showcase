@@ -19,9 +19,5 @@ export interface ResData {
 }
 
 export function createResData(data: any, msg = '', errCode = 0): ResData {
-    return {
-        data,
-        msg,
-        errCode,
-    };
+    return { data, msg, errCode };
 }
