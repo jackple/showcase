@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 
 import logger from 'utils/logger';
 import { isDocumentExist } from 'utils/db';
+import { createResData } from 'utils/common';
 import { IUser } from './interface';
 import CreateDto from './dto/create.dto';
 import LoginDto from './dto/login.dto';
@@ -19,7 +20,7 @@ export default class UserService {
             account: param.account,
         });
         if (isUserExist) {
-            return '用户已存在!';
+            return createResData(null, '用户已存在!', 1);
         }
         const createdUser = new this.userModel(param);
         return await createdUser.save();
