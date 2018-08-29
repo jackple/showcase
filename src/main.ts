@@ -1,8 +1,9 @@
 import { NestFactory } from '@nestjs/core';
 import * as dotenv from 'dotenv';
+import { DOTENV_PATH } from 'config';
 
 // 优先执行, 避免引用项目模块时获取环境变量失败
-dotenv.config();
+dotenv.config({ path: DOTENV_PATH });
 
 import { AppModule } from './app.module';
 
