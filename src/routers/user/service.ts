@@ -40,6 +40,6 @@ export default class UserService extends ServiceExt {
 
     async findAll() {
         const users = await this.userModel.find({});
-        return users;
+        return this.createResData(users);
     }
 }
