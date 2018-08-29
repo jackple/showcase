@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import ServiceExt from 'utils/serviceExt';
+import { JwtPayload } from './interface';
 
 @Injectable()
 export default class AuthService extends ServiceExt {
@@ -10,7 +11,8 @@ export default class AuthService extends ServiceExt {
     }
 
     async createToken(account: string) {
-        const accessToken = this.jwtService.sign(account);
+        const user: JwtPayload = { account };
+        const accessToken = this.jwtService.sign(user);
         return this.createResData(accessToken);
     }
 
