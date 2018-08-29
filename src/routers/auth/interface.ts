@@ -1,3 +1,3 @@
 export interface JwtPayload {
-    account: string;
+    readonly account: string;
 }

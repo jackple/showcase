@@ -1,5 +1,4 @@
 import * as crypto from 'crypto';
-import { readFileSync } from 'fs';
 import { Model } from 'mongoose';
 
 /**
@@ -55,18 +54,4 @@ export function createResData(
     errCode = 0,
 ): ResData {
     return { data, msg, errCode };
-}
-
-/**
- * 解读sshkey
- *
- * @export
- * @param {string} path
- * @returns
- */
-export function extractKey(path: string) {
-    return readFileSync(path)
-        .toString()
-        .replace(/\n|\r/g, '')
-        .replace(/[-]+[\w\s]+[-]+/g, '');
 }

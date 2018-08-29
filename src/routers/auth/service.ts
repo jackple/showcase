@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import ServiceExt from 'utils/serviceExt';
-import { JwtPayload } from './interface';
 
 @Injectable()
 export default class AuthService extends ServiceExt {
@@ -11,13 +10,12 @@ export default class AuthService extends ServiceExt {
     }
 
     async createToken(account: string) {
-        const user: JwtPayload = { account };
-        const accessToken = this.jwtService.sign(user);
+        const accessToken = this.jwtService.sign(account);
         return this.createResData(accessToken);
     }
 
-    async validateUser(payload: JwtPayload): Promise<any> {
-        console.log(payload);
+    async validateUser(account: string): Promise<any> {
+        console.log(account);
         // put some validation logic here
         // for example query user by id/email/username
         return {};
