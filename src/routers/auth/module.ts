@@ -8,18 +8,16 @@ import JwtStrategy from './jwt.strategy';
 
 @Module({
     imports: [
-        JwtModule.registerAsync({
-            useFactory: () => ({
-                secretOrPrivateKey: JWT_RRIVATE_KEY,
-                publicKey: JWT_PUBLIC_KEY,
-                signOptions: {
-                    // algorithm: 'RS256',
-                    expiresIn: 3600,
-                },
-                verifyOptions: {
-                    // algorithms: ['RS256'],
-                },
-            }),
+        JwtModule.register({
+            secretOrPrivateKey: JWT_RRIVATE_KEY,
+            publicKey: JWT_PUBLIC_KEY,
+            signOptions: {
+                // algorithm: 'RS256',
+                expiresIn: 3600,
+            },
+            verifyOptions: {
+                // algorithms: ['RS256'],
+            },
         }),
     ],
     controllers: [AuthController],
