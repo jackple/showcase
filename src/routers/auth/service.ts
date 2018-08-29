@@ -29,6 +29,9 @@ export default class AuthService extends ServiceExt {
         }
         const { account } = loginDto;
         const user = await this.userService.findUserByAccount(account);
+        if (!user) {
+            return this.createResData(null, '用户不存在!', 1);
+        }
         if (cryptData(loginDto.password) !== user.password) {
             return this.createResData(null, '密码错误!', 1);
         }
