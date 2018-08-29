@@ -7,6 +7,6 @@ export const JWT_RRIVATE_KEY = readFileSync(
 );
 
 // jwt公钥
-export const JWT_PUBLISH_KEY = readFileSync(
+export const JWT_PUBLIC_KEY = readFileSync(
     path.join(__dirname, '../assets/jwt/jwtRS256.key.pub'),
 );

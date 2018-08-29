@@ -1,4 +1,5 @@
 import * as crypto from 'crypto';
+import { readFileSync } from 'fs';
 import { Model } from 'mongoose';
 
 /**

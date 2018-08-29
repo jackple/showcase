@@ -17,7 +17,6 @@ export default class AuthService extends ServiceExt {
     }
 
     async validateUser(account: string): Promise<any> {
-        console.log(account);
         // put some validation logic here
         // for example query user by id/email/username
         return {};
