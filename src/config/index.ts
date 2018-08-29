@@ -1,12 +1,2 @@
-import * as path from 'path';
-import { readFileSync } from 'fs';
-
 // jwt私钥
-export const JWT_RRIVATE_KEY = readFileSync(
-    path.join(__dirname, '../assets/jwt/jwtRS256.key'),
-);
-
-// jwt公钥
-export const JWT_PUBLIC_KEY = readFileSync(
-    path.join(__dirname, '../assets/jwt/jwtRS256.key.pub'),
-);
+export const JWT_SECRET_KEY = 'showcase';
