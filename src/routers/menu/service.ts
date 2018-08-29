@@ -13,19 +13,24 @@ export default class MenuService extends ServiceExt {
         super();
     }
 
+    async findAll() {
+        const menus = await this.menuModel.find({});
+        return menus;
+    }
+
     async create(createDto: CreateDto) {
-        if (!createDto || !createDto.account || !createDto.password) {
+        if (!createDto) {
             logger.error(createDto);
             return this.createResData(null, '参数错误!', 1);
         }
-        const isUserExist = await this.isDocumentExist(this.menuModel, {
-            account: createDto.account,
+        const isMenuExist = await this.isDocumentExist(this.menuModel, {
+            title: createDto.title,
         });
-        if (isUserExist) {
-            return this.createResData(null, '用户已存在!', 1);
+        if (isMenuExist) {
+            return this.createResData(null, '菜单已存在!', 1);
         }
-        const createdUser = new this.menuModel(createDto);
-        const user = await createdUser.save();
-        return this.createResData(user);
+        const createdMenu = new this.menuModel(createDto);
+        const menu = await createdMenu.save();
+        return this.createResData(menu);
     }
 }

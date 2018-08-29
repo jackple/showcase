@@ -4,9 +4,8 @@ export interface IMenu extends Document {
     updatedAt: Date;
     createdAt: Date;
     title: string;
-    id: number;
-    pid: number;
+    _id: string;
+    pid: string;
     path: string;
     icon: string;
-    exact: boolean;
 }

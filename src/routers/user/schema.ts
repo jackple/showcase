@@ -1,11 +1,14 @@
 import * as mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema({
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
-    account: String,
-    password: String,
-    category: { type: String, default: 'user' },
-});
+const UserSchema = new mongoose.Schema(
+    {
+        account: { type: String, required: true },
+        password: { type: String, required: true },
+        category: { type: String, default: 'user' },
+    },
+    {
+        timestamps: true,
+    },
+);
 
 export default UserSchema;

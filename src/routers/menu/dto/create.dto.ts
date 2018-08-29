@@ -1,4 +1,6 @@
 export default class CreateDto {
-    readonly account: string;
-    readonly password: string;
+    readonly title: string;
+    readonly pid: string;
+    readonly path: string;
+    readonly icon: string;
 }

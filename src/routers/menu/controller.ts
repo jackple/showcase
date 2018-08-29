@@ -1,4 +1,4 @@
-import { UseGuards, Get, Body, Controller } from '@nestjs/common';
+import { UseGuards, Get, Post, Body, Controller } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 
 import MenuService from './service';
@@ -10,7 +10,12 @@ export default class MenuController {
     constructor(private readonly menuService: MenuService) {}
 
     @Get()
-    findAll(@Body() req: CreateDto) {
-        return this.menuService.create(req);
+    findAll() {
+        return this.menuService.findAll();
+    }
+
+    @Post('create')
+    create(@Body() createDto: CreateDto) {
+        return this.menuService.create(createDto);
     }
 }

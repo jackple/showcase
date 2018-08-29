@@ -1,11 +1,15 @@
 import * as mongoose from 'mongoose';
 
-const MenuSchema = new mongoose.Schema({
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
-    account: String,
-    password: String,
-    category: { type: String, default: 'user' },
-});
+const MenuSchema = new mongoose.Schema(
+    {
+        title: { type: String, required: true },
+        pid: { type: mongoose.Schema.Types.ObjectId, default: null },
+        path: String,
+        icon: String,
+    },
+    {
+        timestamps: true,
+    },
+);
 
 export default MenuSchema;

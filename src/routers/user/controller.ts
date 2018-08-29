@@ -14,7 +14,7 @@ export default class UserController {
         return this.userService.findAll();
     }
 
-    @Post('/create')
+    @Post('create')
     create(@Body() req: CreateDto) {
         return this.userService.create(req);
     }
