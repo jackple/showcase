@@ -7,7 +7,6 @@ import { cryptData } from 'utils/common';
 import ServiceExt from 'utils/serviceExt';
 import { IUser } from './interface';
 import CreateDto from './dto/create.dto';
-import LoginDto from './dto/login.dto';
 
 @Injectable()
 export default class UserService extends ServiceExt {
@@ -34,18 +33,8 @@ export default class UserService extends ServiceExt {
         return this.createResData(user);
     }
 
-    async login(loginDto: LoginDto) {
-        if (!loginDto || !loginDto.account || !loginDto.password) {
-            logger.error(loginDto);
-            return this.createResData(null, '参数错误!', 1);
-        }
-        const user = await this.userModel.findOne({
-            account: loginDto.account,
-        });
-        if (cryptData(loginDto.password) !== user.password) {
-            return this.createResData(null, '密码错误!', 1);
-        }
-        logger.info(loginDto);
-        return this.createResData(null, '登录成功!');
+    async findUserByAccount(account: string) {
+        const user = await this.userModel.findOne({ account });
+        return user;
     }
 }
