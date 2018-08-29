@@ -19,8 +19,7 @@ export default class AuthService extends ServiceExt {
 
     createToken(account: string) {
         const user: JwtPayload = { account };
-        const accessToken = this.jwtService.sign(user);
-        return this.createResData(accessToken);
+        return this.jwtService.sign(user);
     }
 
     async login(loginDto: LoginDto) {
@@ -37,15 +36,15 @@ export default class AuthService extends ServiceExt {
         return this.createResData(
             {
                 account,
+                category: user.category,
                 token: this.createToken(account),
             },
             '登录成功!',
         );
     }
 
-    async validateUser(account: string): Promise<any> {
-        // put some validation logic here
-        // for example query user by id/email/username
-        return {};
+    async validateUser(account: string) {
+        const user = await this.userService.findUserByAccount(account);
+        return user;
     }
 }
