@@ -44,7 +44,7 @@ export default class AuthMiddleware implements NestMiddleware {
                     if (user) {
                         return next();
                     }
-                    res.status(403).json('can not find user by this token.');
+                    res.status(402).json('can not find user by this token.');
                 } catch (err) {
                     logger.error(err);
                     return res.status(403).json(err);
