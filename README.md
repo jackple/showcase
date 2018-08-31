@@ -1,13 +1,11 @@
-# showcase
+# a simple nest server starter with MongoDB, jsonwebtoken
 
-## Description
-
-description
+> By the way, this is a real server which is deployed for the project [ts-react-webpack](https://github.com/YDJ-FE/ts-react-webpack), and there it is [https://starter.jackple.com/](https://starter.jackple.com/) 😁😁😁
 
 ## Installation
 
 ```bash
-$ npm install
+$ npm i
 ```
 
 ## Running the app
@@ -18,6 +16,9 @@ $ npm run start
 
 # watch mode
 $ npm run start:dev
+
+# debug with vscode mode
+$ npm run start:debug
 
 # production mode
 npm run start:prod
@@ -36,9 +37,8 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## pm2启动
+## pm2 start example
 
 ```bash
 $ pm2 start npm -- start
 ```
-
