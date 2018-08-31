@@ -6,11 +6,10 @@ import {
 } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 
-import AuthMiddleware from 'middlewares/auth.middleware';
+import AuthMiddleware from './auth.middleware';
 import { JWT_SECRET_KEY } from 'config';
 import AuthController from './controller';
 import AuthService from './service';
-import JwtStrategy from './jwt.strategy';
 import UserModule from './../user/module';
 
 @Module({
@@ -27,7 +26,7 @@ import UserModule from './../user/module';
         UserModule,
     ],
     controllers: [AuthController],
-    providers: [AuthService, JwtStrategy],
+    providers: [AuthService],
 })
 export default class AuthModule implements NestModule {
     configure(consumer: MiddlewareConsumer): void {
