@@ -18,7 +18,7 @@ import UserModule from './../user/module';
         JwtModule.register({
             secretOrPrivateKey: JWT_SECRET_KEY,
             signOptions: {
-                expiresIn: '1s',
+                expiresIn: '72h',
             },
             verifyOptions: {
                 ignoreExpiration: false,
