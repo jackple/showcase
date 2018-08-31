@@ -12,7 +12,8 @@
         "sourceMap": true,
         "allowJs": true,
         "outDir": "./dist",
-        "baseUrl": "./src"
+        "baseUrl": "./src",
+        "lib": ["es7"]
     },
     "include": ["src/**/*", "typings"],
     "exclude": ["node_modules", "**/*.spec.ts"]

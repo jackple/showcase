@@ -12,3 +12,15 @@ export let DOTENV_PATH = path.resolve(process.cwd(), `.${APP_ENV}.env`);
 if (!fs.existsSync(DOTENV_PATH)) {
     DOTENV_PATH = baseDotenvPath;
 }
+
+interface IRouterConfig {
+    path: string;
+    exact: boolean;
+}
+
+export const UNNECESSARY_AUTH_ROUTERS: IRouterConfig[] = [
+    {
+        path: '/auth/login',
+        exact: true,
+    },
+];
