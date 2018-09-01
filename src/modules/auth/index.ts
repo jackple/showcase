@@ -10,7 +10,7 @@ import AuthMiddleware from './auth.middleware'
 import { JWT_SECRET_KEY } from 'config'
 import AuthController from './controller'
 import AuthService from './service'
-import UserModule from './../user/module'
+import UserModule from '../user'
 
 @Module({
     imports: [
