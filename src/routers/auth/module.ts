@@ -3,14 +3,14 @@ import {
     NestModule,
     MiddlewareConsumer,
     RequestMethod,
-} from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
+} from '@nestjs/common'
+import { JwtModule } from '@nestjs/jwt'
 
-import AuthMiddleware from './auth.middleware';
-import { JWT_SECRET_KEY } from 'config';
-import AuthController from './controller';
-import AuthService from './service';
-import UserModule from './../user/module';
+import AuthMiddleware from './auth.middleware'
+import { JWT_SECRET_KEY } from 'config'
+import AuthController from './controller'
+import AuthService from './service'
+import UserModule from './../user/module'
 
 @Module({
     imports: [
@@ -32,6 +32,6 @@ export default class AuthModule implements NestModule {
     configure(consumer: MiddlewareConsumer): void {
         consumer
             .apply(AuthMiddleware)
-            .forRoutes({ path: '*', method: RequestMethod.ALL });
+            .forRoutes({ path: '*', method: RequestMethod.ALL })
     }
 }

@@ -1,4 +1,4 @@
-import { isDocumentExist, createResData } from 'utils/common';
+import { isDocumentExist, createResData } from 'utils/common'
 
 /**
  * 扩展Service类以方便调用
@@ -13,11 +13,11 @@ export default class ServiceExt {
      *
      * @memberof ServiceExt
      */
-    readonly isDocumentExist = isDocumentExist;
+    readonly isDocumentExist = isDocumentExist
     /**
      * 组装接口返回数据
      *
      * @memberof ServiceExt
      */
-    readonly createResData = createResData;
+    readonly createResData = createResData
 }

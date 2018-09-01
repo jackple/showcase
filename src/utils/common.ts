@@ -1,6 +1,6 @@
-import * as crypto from 'crypto';
-import { readFileSync } from 'fs';
-import { Model } from 'mongoose';
+import * as crypto from 'crypto'
+import { readFileSync } from 'fs'
+import { Model } from 'mongoose'
 
 /**
  * 加密
@@ -10,8 +10,8 @@ import { Model } from 'mongoose';
  * @returns
  */
 export function cryptData(data: string) {
-    const md5 = crypto.createHash('md5');
-    return md5.update(data).digest('hex');
+    const md5 = crypto.createHash('md5')
+    return md5.update(data).digest('hex')
 }
 
 /**
@@ -27,17 +27,17 @@ export async function isDocumentExist(
     conditions: { [key: string]: any },
 ) {
     try {
-        const count = await model.countDocuments(conditions);
-        return count > 0;
+        const count = await model.countDocuments(conditions)
+        return count > 0
     } catch (err) {
-        throw err;
+        throw err
     }
 }
 
 export interface ResData {
-    data: any;
-    msg: string;
-    errCode: number;
+    data: any
+    msg: string
+    errCode: number
 }
 
 /**
@@ -54,5 +54,5 @@ export function createResData(
     msg = 'success',
     errCode = 0,
 ): ResData {
-    return { data, msg, errCode };
+    return { data, msg, errCode }
 }

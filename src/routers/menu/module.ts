@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { Module } from '@nestjs/common'
+import { MongooseModule } from '@nestjs/mongoose'
 
-import MenuController from './controller';
-import MenuService from './service';
-import MenuSchema from './schema';
+import MenuController from './controller'
+import MenuService from './service'
+import MenuSchema from './schema'
 
 @Module({
     imports: [

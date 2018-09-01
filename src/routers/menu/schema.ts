@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import * as mongoose from 'mongoose'
 
 const MenuSchema = new mongoose.Schema(
     {
@@ -10,6 +10,6 @@ const MenuSchema = new mongoose.Schema(
     {
         timestamps: true,
     },
-);
+)
 
-export default MenuSchema;
+export default MenuSchema
