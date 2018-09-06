@@ -39,6 +39,7 @@
         "@types/jest": "^23.3.1",
         "@types/mongoose": "^5.2.7",
         "@types/node": "^10.9.2",
+        "@types/socket.io": "^1.4.38",
         "@types/supertest": "^2.0.5",
         "jest": "^23.5.0",
         "nodemon": "^1.18.3",

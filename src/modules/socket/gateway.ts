@@ -13,7 +13,8 @@ export default class Gateway {
     server
 
     @SubscribeMessage('events')
-    onEvent(client, data): Observable<WsResponse<number>> {
+    onEvent(client: SocketIO.Client, data): Observable<WsResponse<number>> {
+        // console.log(client.id)
         return from([1, 2, 3]).pipe(
             map(item => ({ event: 'events', data: item })),
         )
