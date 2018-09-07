@@ -34,13 +34,8 @@ export default class AuthMiddleware implements NestMiddleware {
             if (authorization && authorization.split(' ')[0] === 'Bearer') {
                 const token = authorization.split(' ')[1]
                 try {
-                    const decoded = jwt.verify(
-                        token,
-                        JWT_SECRET_KEY,
-                    ) as JwtPayload
-                    const user = await this.authService.validateUser(
-                        decoded.account,
-                    )
+                    const decoded = jwt.verify(token, JWT_SECRET_KEY) as JwtPayload
+                    const user = await this.authService.validateUser(decoded.account)
                     if (user) {
                         return next()
                     }
@@ -50,11 +45,7 @@ export default class AuthMiddleware implements NestMiddleware {
                     return res.status(403).json(err)
                 }
             } else {
-                return res
-                    .status(401)
-                    .json(
-                        'You must provide a valid authenticated access token.',
-                    )
+                return res.status(401).json('You must provide a valid authenticated access token.')
             }
         }
     }

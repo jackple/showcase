@@ -10,10 +10,7 @@ import LoginDto from './dto/login.dto'
 
 @Injectable()
 export default class AuthService extends ServiceExt {
-    constructor(
-        private readonly jwtService: JwtService,
-        private readonly userService: UserService,
-    ) {
+    constructor(private readonly jwtService: JwtService, private readonly userService: UserService) {
         super()
     }
 

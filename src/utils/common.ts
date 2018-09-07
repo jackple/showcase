@@ -22,10 +22,7 @@ export function cryptData(data: string) {
  * @param {{ [key: string]: any }} conditions
  * @returns
  */
-export async function isDocumentExist(
-    model: Model<any>,
-    conditions: { [key: string]: any },
-) {
+export async function isDocumentExist(model: Model<any>, conditions: { [key: string]: any }) {
     try {
         const count = await model.countDocuments(conditions)
         return count > 0
@@ -49,10 +46,6 @@ export interface ResData {
  * @param {number} [errCode=0]
  * @returns {ResData}
  */
-export function createResData(
-    data: any,
-    msg = 'success',
-    errCode = 0,
-): ResData {
+export function createResData(data: any, msg = 'success', errCode = 0): ResData {
     return { data, msg, errCode }
 }

@@ -6,9 +6,7 @@ import MenuService from './service'
 import MenuSchema from './schema'
 
 @Module({
-    imports: [
-        MongooseModule.forFeature([{ name: 'Menu', schema: MenuSchema }]),
-    ],
+    imports: [MongooseModule.forFeature([{ name: 'Menu', schema: MenuSchema }])],
     controllers: [MenuController],
     providers: [MenuService],
 })
