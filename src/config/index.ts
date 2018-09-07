@@ -23,6 +23,10 @@ interface IRouterConfig {
 
 export const UNNECESSARY_AUTH_ROUTERS: IRouterConfig[] = [
     {
+        path: '/',
+        exact: true,
+    },
+    {
         path: '/auth/login',
         exact: true,
     },
