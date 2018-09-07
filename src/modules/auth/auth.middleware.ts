@@ -8,12 +8,13 @@ import { JwtPayload } from './interface'
 import AuthService from './service'
 
 function checkRouterNeedsAuth(path: string): boolean {
+    const _path = path.startsWith('/api') ? path.slice(4, path.length) : path
     for (const router of UNNECESSARY_AUTH_ROUTERS) {
         if (router.exact) {
-            if (router.path === path) {
+            if (router.path === _path) {
                 return true
             }
-        } else if (router.path === path || router.path.startsWith(`${path}/`)) {
+        } else if (router.path === _path || router.path.startsWith(`${_path}/`)) {
             return true
         }
     }

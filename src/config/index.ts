@@ -13,6 +13,9 @@ if (!fs.existsSync(DOTENV_PATH)) {
     DOTENV_PATH = baseDotenvPath
 }
 
+// 系统接口前缀
+export const API_PREFIX = 'api'
+
 interface IRouterConfig {
     path: string
     exact: boolean
