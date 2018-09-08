@@ -69,7 +69,7 @@ export default class UserService extends ServiceExt {
         if (theUser.account === 'admin') {
             return this.createResData(null, '系统管理员不允许删除!', 1)
         }
-        await this.userModel.remove({ _id })
+        await this.userModel.deleteOne({ _id })
         return this.createResData('删除成功')
     }
 
