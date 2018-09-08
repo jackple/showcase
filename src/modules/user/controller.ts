@@ -13,7 +13,7 @@ export default class UserController {
     }
 
     @Post('create')
-    create(@Body() req: CreateDto) {
-        return this.userService.create(req)
+    create(@Body() body: CreateDto) {
+        return this.userService.create(body)
     }
 }
