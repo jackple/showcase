@@ -5,11 +5,11 @@ const MenuSchema = new mongoose.Schema(
         title: { type: String, required: true },
         pid: { type: mongoose.Schema.Types.ObjectId, default: null },
         path: String,
-        icon: String,
+        icon: String
     },
     {
-        timestamps: true,
-    },
+        timestamps: true
+    }
 )
 
 export default MenuSchema

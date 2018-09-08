@@ -11,8 +11,8 @@ const logger = createLogger({
         // - Write all logs error (and below) to `error.log`.
         //
         new transports.File({ filename: 'error.log', level: 'error' }),
-        new transports.File({ filename: 'combined.log' }),
-    ],
+        new transports.File({ filename: 'combined.log' })
+    ]
 })
 
 export default logger

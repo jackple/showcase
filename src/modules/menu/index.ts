@@ -8,6 +8,6 @@ import MenuSchema from './schema'
 @Module({
     imports: [MongooseModule.forFeature([{ name: 'Menu', schema: MenuSchema }])],
     controllers: [MenuController],
-    providers: [MenuService],
+    providers: [MenuService]
 })
 export default class MenuModule {}

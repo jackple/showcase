@@ -2,6 +2,6 @@ import { Module } from '@nestjs/common'
 import Gateway from './gateway'
 
 @Module({
-    providers: [Gateway],
+    providers: [Gateway]
 })
 export default class SocketModule {}

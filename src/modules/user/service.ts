@@ -20,14 +20,14 @@ export default class UserService extends ServiceExt {
             return this.createResData(null, '参数错误!', 1)
         }
         const isUserExist = await this.isDocumentExist(this.userModel, {
-            account: createDto.account,
+            account: createDto.account
         })
         if (isUserExist) {
             return this.createResData(null, '用户已存在!', 1)
         }
         const createdUser = new this.userModel({
             ...createDto,
-            password: cryptData(createDto.password),
+            password: cryptData(createDto.password)
         })
         const user = await createdUser.save()
         return this.createResData(user)

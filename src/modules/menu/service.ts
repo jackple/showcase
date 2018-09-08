@@ -24,7 +24,7 @@ export default class MenuService extends ServiceExt {
             return this.createResData(null, '参数错误!', 1)
         }
         const isMenuExist = await this.isDocumentExist(this.menuModel, {
-            title: createDto.title,
+            title: createDto.title
         })
         if (isMenuExist) {
             return this.createResData(null, '菜单已存在!', 1)

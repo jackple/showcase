@@ -12,16 +12,16 @@ import UserModule from '../user'
         JwtModule.register({
             secretOrPrivateKey: JWT_SECRET_KEY,
             signOptions: {
-                expiresIn: '72h',
+                expiresIn: '72h'
             },
             verifyOptions: {
-                ignoreExpiration: false,
-            },
+                ignoreExpiration: false
+            }
         }),
-        UserModule,
+        UserModule
     ],
     controllers: [AuthController],
-    providers: [AuthService],
+    providers: [AuthService]
 })
 export default class AuthModule implements NestModule {
     configure(consumer: MiddlewareConsumer): void {

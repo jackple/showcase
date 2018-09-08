@@ -4,11 +4,11 @@ const UserSchema = new mongoose.Schema(
     {
         account: { type: String, required: true },
         password: { type: String, required: true },
-        category: { type: String, default: 'user' },
+        category: { type: String, default: 'user' }
     },
     {
-        timestamps: true,
-    },
+        timestamps: true
+    }
 )
 
 export default UserSchema

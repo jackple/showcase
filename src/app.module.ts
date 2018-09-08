@@ -9,11 +9,11 @@ import modules from 'modules'
 @Module({
     imports: [
         MongooseModule.forRoot(DB_CONN, {
-            useNewUrlParser: true,
+            useNewUrlParser: true
         }),
-        ...modules,
+        ...modules
     ],
     controllers: [AppController],
-    providers: [AppService],
+    providers: [AppService]
 })
 export class AppModule {}

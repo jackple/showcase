@@ -8,6 +8,7 @@
         "eofline": false,
         "quotemark": [true, "single"],
         "semicolon": [true, "never"],
+        "trailing-comma": [false],
         "indent": false,
         "member-access": [false],
         "ordered-imports": [false],

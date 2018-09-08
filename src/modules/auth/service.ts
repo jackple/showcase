@@ -37,9 +37,9 @@ export default class AuthService extends ServiceExt {
             {
                 account,
                 category: user.category,
-                token: this.createToken(account),
+                token: this.createToken(account)
             },
-            '登录成功!',
+            '登录成功!'
         )
     }
 
