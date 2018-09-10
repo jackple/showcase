@@ -80,18 +80,16 @@ export default class UserService extends ServiceExt {
     }
 
     async findAll(searchDto: SearchDto) {
-        const { pageSize, pageIndex } = searchDto
-        let _pageSize = Number(pageSize),
-            _pageIndex = Number(pageIndex)
-        _pageSize = Number.isInteger(_pageSize) ? _pageSize : 30
-        _pageIndex = Number.isInteger(_pageIndex) ? _pageIndex : 1
+        let { pageSize, pageIndex } = searchDto
+        pageSize = Number.isInteger(Number(pageSize)) ? Number(pageSize) : 30
+        pageIndex = Number.isInteger(Number(pageIndex)) ? Number(pageIndex) : 1
         // do not send user admin and password of anyone
         const excludeAdmin = { account: { $ne: 'admin', $exists: true } }
         const total = await this.userModel.countDocuments(excludeAdmin)
         const users = await this.userModel
             .find(excludeAdmin, { password: 0 })
-            .skip((_pageIndex - 1) * _pageSize)
-            .limit(_pageSize)
+            .skip((pageIndex - 1) * pageSize)
+            .limit(pageSize)
         return this.createResData({ total, users })
     }
 }
