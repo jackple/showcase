@@ -9,6 +9,7 @@ import { IUser } from './interface'
 import CreateDto from './dto/create.dto'
 import ModifyDto from './dto/modify.dto'
 import DeleteDto from './dto/delete.dto'
+import SearchDto from './dto/search.dto'
 
 @Injectable()
 export default class UserService extends ServiceExt {
@@ -78,9 +79,18 @@ export default class UserService extends ServiceExt {
         return user
     }
 
-    async findAll() {
+    async findAll(searchDto: SearchDto) {
+        const { pageSize, pageIndex } = searchDto
+        let _pageSize = Number(pageSize),
+            _pageIndex = Number(pageIndex)
+        _pageSize = Number.isInteger(_pageSize) ? _pageSize : 30
+        _pageIndex = Number.isInteger(_pageIndex) ? _pageIndex : 1
         // do not send user admin and password of anyone
-        const users = await this.userModel.find({ account: { $ne: 'admin', $exists: true } }, { password: 0 })
-        return this.createResData(users)
+        const total = await this.userModel.count({ account: { $ne: 'admin', $exists: true } })
+        const users = await this.userModel
+            .find({ account: { $ne: 'admin', $exists: true } }, { password: 0 })
+            .skip((_pageIndex - 1) * _pageSize)
+            .limit(_pageSize)
+        return this.createResData({ total, users })
     }
 }
