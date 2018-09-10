@@ -86,9 +86,10 @@ export default class UserService extends ServiceExt {
         _pageSize = Number.isInteger(_pageSize) ? _pageSize : 30
         _pageIndex = Number.isInteger(_pageIndex) ? _pageIndex : 1
         // do not send user admin and password of anyone
-        const total = await this.userModel.countDocuments({ account: { $ne: 'admin', $exists: true } })
+        const excludeAdmin = { account: { $ne: 'admin', $exists: true } }
+        const total = await this.userModel.countDocuments(excludeAdmin)
         const users = await this.userModel
-            .find({ account: { $ne: 'admin', $exists: true } }, { password: 0 })
+            .find(excludeAdmin, { password: 0 })
             .skip((_pageIndex - 1) * _pageSize)
             .limit(_pageSize)
         return this.createResData({ total, users })
