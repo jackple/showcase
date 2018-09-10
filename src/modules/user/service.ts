@@ -89,6 +89,7 @@ export default class UserService extends ServiceExt {
         const users = await this.userModel
             .find(excludeAdmin, { password: 0 })
             .skip((pageIndex - 1) * pageSize)
+            .sort({ createdAt: -1 })
             .limit(pageSize)
         return this.createResData({ total, users })
     }
